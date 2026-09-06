@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="warmBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF7" />
+      <stop offset="50%" stop-color="#FBF2DE" />
+      <stop offset="100%" stop-color="#F0DFBC" />
+    </linearGradient>
+
+    <!-- Warm Wood Frame -->
+    <linearGradient id="woodBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B37844" />
+      <stop offset="50%" stop-color="#8C5326" />
+      <stop offset="100%" stop-color="#5E3110" />
+    </linearGradient>
+
+    <!-- Chipmunk Fur Gradients -->
+    <linearGradient id="chipmunkMain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E89648" />
+      <stop offset="100%" stop-color="#B86221" />
+    </linearGradient>
+
+    <linearGradient id="chipmunkDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6E3710" />
+      <stop offset="100%" stop-color="#421E06" />
+    </linearGradient>
+
+    <linearGradient id="chipmunkWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFF4E0" />
+    </linearGradient>
+
+    <linearGradient id="tailGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9C4C14" />
+      <stop offset="50%" stop-color="#D98032" />
+      <stop offset="100%" stop-color="#F2A65E" />
+    </linearGradient>
+
+    <!-- Calendar cover -->
+    <linearGradient id="calCover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="100%" stop-color="#D93838" />
+    </linearGradient>
+
+    <linearGradient id="calPage" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFF9F0" />
+    </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#4A2608" flood-opacity="0.22" />
+    </filter>
+
+    <filter id="elementShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#542E11" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Outer Rounded Wood Badge -->
+  <rect x="20" y="20" width="472" height="472" rx="110" fill="url(#warmBg)" stroke="url(#woodBorder)" stroke-width="14" filter="url(#dropShadow)" />
+  
+  <!-- Hand-drawn dashed stitch detail inside -->
+  <rect x="36" y="36" width="440" height="440" rx="98" fill="none" stroke="#D1B892" stroke-width="3.5" stroke-dasharray="10 8" opacity="0.85" />
+
+  <!-- Soft Forest Plant Deco in background -->
+  <g opacity="0.65">
+    <!-- Leaves top left -->
+    <path d="M 65 140 C 45 100 85 70 120 95 C 135 110 110 150 65 140 Z" fill="#7E9F67" />
+    <path d="M 65 140 Q 95 115 120 95" stroke="#54753D" stroke-width="2.5" fill="none" />
+    <circle cx="128" cy="120" r="7" fill="#E25442" />
+    <circle cx="142" cy="132" r="5.5" fill="#FA8072" />
+
+    <!-- Leaves top right -->
+    <path d="M 445 140 C 465 100 425 70 390 95 C 375 110 400 150 445 140 Z" fill="#7E9F67" />
+    <path d="M 445 140 Q 415 115 390 95" stroke="#54753D" stroke-width="2.5" fill="none" />
+    <circle cx="384" cy="120" r="7" fill="#E25442" />
+  </g>
+
+  <!-- Giant Fluffy Bushy Tail in Background -->
+  <g filter="url(#elementShadow)">
+    <path d="M 320 380 C 420 370 470 260 440 160 C 420 90 350 70 325 110 C 310 135 340 180 345 220 C 350 265 310 330 280 350 Z" 
+          fill="url(#tailGrad)" stroke="#5A2E0D" stroke-width="5" stroke-linejoin="round" />
+    
+    <!-- Tail Fluffy Highlights & Stripes -->
+    <path d="M 345 105 C 375 80 430 110 430 170 C 430 230 380 290 335 320" 
+          fill="none" stroke="#FFF7EB" stroke-width="8" stroke-linecap="round" opacity="0.6" />
+    <path d="M 330 160 C 360 170 380 200 375 240" 
+          fill="none" stroke="#5E2C0A" stroke-width="7" stroke-linecap="round" opacity="0.5" />
+    <path d="M 350 240 C 370 255 385 285 365 325" 
+          fill="none" stroke="#5E2C0A" stroke-width="6" stroke-linecap="round" opacity="0.4" />
+  </g>
+
+  <!-- Chipmunk Body -->
+  <g id="chipmunkGroup">
+    <!-- Back Foot / Leg -->
+    <ellipse cx="170" cy="415" rx="36" ry="22" fill="#BA6422" stroke="#522709" stroke-width="4.5" />
+    <ellipse cx="340" cy="415" rx="36" ry="22" fill="#BA6422" stroke="#522709" stroke-width="4.5" />
+
+    <!-- Chubby Body -->
+    <path d="M 175 260 C 140 310 145 400 200 425 C 240 440 270 440 310 425 C 365 400 370 310 335 260 C 310 225 200 225 175 260 Z" 
+          fill="url(#chipmunkMain)" stroke="#522709" stroke-width="5" />
+
+    <!-- Cute Soft Cream Belly -->
+    <ellipse cx="256" cy="355" rx="72" ry="68" fill="url(#chipmunkWhite)" opacity="0.95" />
+
+    <!-- Chipmunk Ears -->
+    <!-- Left Ear -->
+    <g>
+      <ellipse cx="190" cy="140" rx="26" ry="34" transform="rotate(-18 190 140)" fill="url(#chipmunkMain)" stroke="#522709" stroke-width="4.5" />
+      <ellipse cx="190" cy="142" rx="16" ry="22" transform="rotate(-18 190 142)" fill="#FFAAA6" />
+    </g>
+    <!-- Right Ear -->
+    <g>
+      <ellipse cx="322" cy="140" rx="26" ry="34" transform="rotate(18 322 140)" fill="url(#chipmunkMain)" stroke="#522709" stroke-width="4.5" />
+      <ellipse cx="322" cy="142" rx="16" ry="22" transform="rotate(18 322 142)" fill="#FFAAA6" />
+    </g>
+
+    <!-- Chubby Round Head -->
+    <path d="M 175 195 C 145 220 140 280 185 305 C 220 325 292 325 327 305 C 372 280 367 220 337 195 C 305 160 205 160 175 195 Z" 
+          fill="url(#chipmunkMain)" stroke="#522709" stroke-width="5" />
+
+    <!-- Chipmunk Classic Head & Cheek Stripes -->
+    <!-- Center forehead white stripe -->
+    <path d="M 256 168 C 250 190 248 215 256 230 C 264 215 262 190 256 168 Z" fill="url(#chipmunkWhite)" />
+    <!-- Dark stripe left -->
+    <path d="M 242 166 C 236 188 234 206 238 218" stroke="#4A2207" stroke-width="5" stroke-linecap="round" fill="none" />
+    <!-- Dark stripe right -->
+    <path d="M 270 166 C 276 188 278 206 274 218" stroke="#4A2207" stroke-width="5" stroke-linecap="round" fill="none" />
+
+    <!-- Chubby White Cheeks -->
+    <ellipse cx="198" cy="265" rx="35" ry="30" fill="url(#chipmunkWhite)" />
+    <ellipse cx="314" cy="265" rx="35" ry="30" fill="url(#chipmunkWhite)" />
+
+    <!-- Rosy Blushing Cheeks -->
+    <ellipse cx="190" cy="272" rx="18" ry="12" fill="#FF8577" opacity="0.65" />
+    <ellipse cx="322" cy="272" rx="18" ry="12" fill="#FF8577" opacity="0.65" />
+
+    <!-- Cute Big Twinkling Eyes -->
+    <!-- Left Eye -->
+    <ellipse cx="218" cy="225" rx="14" ry="18" fill="#241407" />
+    <circle cx="214" cy="219" r="6" fill="#FFFFFF" />
+    <circle cx="223" cy="232" r="2.8" fill="#FFFFFF" />
+    <!-- Right Eye -->
+    <ellipse cx="294" cy="225" rx="14" ry="18" fill="#241407" />
+    <circle cx="290" cy="219" r="6" fill="#FFFFFF" />
+    <circle cx="299" cy="232" r="2.8" fill="#FFFFFF" />
+
+    <!-- Cute Little Button Nose -->
+    <polygon points="256,242 248,252 264,252" fill="#421C06" stroke="#421C06" stroke-width="2" stroke-linejoin="round" />
+    
+    <!-- Sweet Smiling Mouth -->
+    <path d="M 248 255 Q 256 264 256 260 Q 256 264 264 255" fill="none" stroke="#421C06" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Chipmunk Whiskers -->
+    <path d="M 180 262 L 150 255 M 178 270 L 145 272 M 180 278 L 152 288" stroke="#7A421A" stroke-width="2.5" stroke-linecap="round" opacity="0.75" />
+    <path d="M 332 262 L 362 255 M 334 270 L 367 272 M 332 278 L 360 288" stroke="#7A421A" stroke-width="2.5" stroke-linecap="round" opacity="0.75" />
+  </g>
+
+  <!-- FAIRY TALE CALENDAR HELD PROUDLY IN CHIPMUNK'S PAWS -->
+  <g id="calendarBook" filter="url(#elementShadow)">
+    <!-- Open Calendar Backing Book (Woodland Fairytale Style) -->
+    <!-- Red Calendar Base Header -->
+    <rect x="170" y="300" width="172" height="135" rx="18" fill="url(#calCover)" stroke="#4A1E11" stroke-width="4.5" />
+    
+    <!-- White Calendar Pages -->
+    <rect x="176" y="330" width="160" height="98" rx="12" fill="url(#calPage)" stroke="#522709" stroke-width="3" />
+
+    <!-- Calendar Spiral Rings Top -->
+    <g fill="#D5DFE6" stroke="#4F6470" stroke-width="2.5">
+      <ellipse cx="198" cy="302" rx="4.5" ry="9" />
+      <ellipse cx="227" cy="302" rx="4.5" ry="9" />
+      <ellipse cx="256" cy="302" rx="4.5" ry="9" />
+      <ellipse cx="285" cy="302" rx="4.5" ry="9" />
+      <ellipse cx="314" cy="302" rx="4.5" ry="9" />
+    </g>
+
+    <!-- Calendar Header Text / Fairytale Symbols -->
+    <text x="256" y="322" font-family="'Zen Maru Gothic', sans-serif, system-ui" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+      2026 CALENDAR
+    </text>
+
+    <!-- Calendar Mini Grid Blocks (Cute Hand-drawn Marks) -->
+    <!-- Grid rows & cols -->
+    <g fill="#F2E6D5">
+      <rect x="186" y="340" width="18" height="15" rx="4" />
+      <rect x="208" y="340" width="18" height="15" rx="4" />
+      <rect x="230" y="340" width="18" height="15" rx="4" />
+      <rect x="252" y="340" width="18" height="15" rx="4" fill="#FFE0E0" />
+      <rect x="274" y="340" width="18" height="15" rx="4" />
+      <rect x="296" y="340" width="18" height="15" rx="4" fill="#FFE4B5" />
+
+      <rect x="186" y="360" width="18" height="15" rx="4" fill="#FFE4B5" />
+      <rect x="208" y="360" width="18" height="15" rx="4" />
+      <rect x="230" y="360" width="18" height="15" rx="4" fill="#E8F5E9" />
+      <rect x="252" y="360" width="18" height="15" rx="4" />
+      <rect x="274" y="360" width="18" height="15" rx="4" fill="#FFE0E0" />
+      <rect x="296" y="360" width="18" height="15" rx="4" />
+
+      <rect x="186" y="380" width="18" height="15" rx="4" />
+      <rect x="208" y="380" width="18" height="15" rx="4" fill="#FFE0E0" />
+      <rect x="230" y="380" width="18" height="15" rx="4" />
+      <rect x="252" y="380" width="18" height="15" rx="4" fill="#FFE4B5" />
+      <rect x="274" y="380" width="18" height="15" rx="4" />
+      <rect x="296" y="380" width="18" height="15" rx="4" />
+
+      <rect x="186" y="400" width="18" height="15" rx="4" fill="#FFE0E0" />
+      <rect x="208" y="400" width="18" height="15" rx="4" />
+      <rect x="230" y="400" width="18" height="15" rx="4" />
+      <rect x="252" y="400" width="18" height="15" rx="4" />
+      <rect x="274" y="400" width="18" height="15" rx="4" fill="#E8F5E9" />
+      <rect x="296" y="400" width="18" height="15" rx="4" fill="#FFE0E0" />
+    </g>
+
+    <!-- Golden Star Stamp on the calendar -->
+    <path d="M 239 367 L 241 362 L 243 367 L 248 368 L 244 371 L 245 376 L 241 373 L 237 376 L 238 371 L 234 368 Z" fill="#F59E0B" />
+    <!-- Cute Red Heart Stamp on the calendar -->
+    <path d="M 261 364 C 261 361 258 359 255 361 C 252 359 249 361 249 364 C 249 368 255 372 255 372 C 255 372 261 368 261 364 Z" fill="#EF4444" />
+    <!-- Acorn Stamp on calendar -->
+    <circle cx="283" cy="367" r="3.5" fill="#8B4513" />
+
+    <!-- Cute Little Chipmunk Paws Holding the Sides of Calendar -->
+    <!-- Left Paw -->
+    <g>
+      <ellipse cx="172" cy="355" rx="16" ry="13" fill="#D98032" stroke="#522709" stroke-width="4" />
+      <ellipse cx="170" cy="355" rx="10" ry="8" fill="#FFF2DF" />
+      <!-- Tiny Claws/Fingers -->
+      <circle cx="180" cy="349" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+      <circle cx="183" cy="355" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+      <circle cx="180" cy="361" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+    </g>
+
+    <!-- Right Paw -->
+    <g>
+      <ellipse cx="340" cy="355" rx="16" ry="13" fill="#D98032" stroke="#522709" stroke-width="4" />
+      <ellipse cx="342" cy="355" rx="10" ry="8" fill="#FFF2DF" />
+      <!-- Tiny Claws/Fingers -->
+      <circle cx="332" cy="349" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+      <circle cx="329" cy="355" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+      <circle cx="332" cy="361" r="3.5" fill="#D98032" stroke="#522709" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- Hand-drawn Acorn & Sparkles Deco at bottom -->
+  <g id="bottomDeco">
+    <!-- Left Acorn -->
+    <path d="M 105 425 C 120 420 130 435 125 450 C 115 460 100 455 95 440 Z" fill="#99602C" stroke="#4A2608" stroke-width="3" />
+    <path d="M 90 428 C 96 415 120 415 128 425 C 122 432 98 435 90 428 Z" fill="#5F3A15" stroke="#4A2608" stroke-width="3" />
+    
+    <!-- Right Acorn -->
+    <path d="M 405 425 C 420 420 430 435 425 450 C 415 460 400 455 395 440 Z" fill="#99602C" stroke="#4A2608" stroke-width="3" />
+    <path d="M 390 428 C 396 415 420 415 428 425 C 422 432 398 435 390 428 Z" fill="#5F3A15" stroke="#4A2608" stroke-width="3" />
+
+    <!-- Magic Fairytale Sparkles -->
+    <path d="M 125 180 Q 135 180 135 170 Q 135 180 145 180 Q 135 180 135 190 Q 135 180 125 180 Z" fill="#F59E0B" />
+    <path d="M 385 180 Q 395 180 395 170 Q 395 180 405 180 Q 395 180 395 190 Q 395 180 385 180 Z" fill="#F59E0B" />
+    <circle cx="256" cy="95" r="4" fill="#F59E0B" />
+  </g>
+</svg>
