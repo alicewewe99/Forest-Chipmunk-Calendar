@@ -71,7 +71,15 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
     setMemoInput(memos[dayInfo.date] || '');
   };
 
-  // Month navigation
+  // Month & Year navigation
+  const handlePrevYear = () => {
+    setCurrentYear((y) => y - 1);
+  };
+
+  const handleNextYear = () => {
+    setCurrentYear((y) => y + 1);
+  };
+
   const handlePrevMonth = () => {
     if (currentMonth === 1) {
       setCurrentYear((y) => y - 1);
@@ -314,43 +322,103 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
 
       {/* Main Calendar Card */}
       <div className="bg-white rounded-3xl border-2 border-amber-200/90 shadow-md overflow-hidden flex flex-col">
-        {/* Month Header */}
-        <div className="px-4 sm:px-6 py-4 bg-gradient-to-r from-[#fbf8f3] via-amber-50/50 to-[#fbf8f3] border-b border-amber-200 flex items-center justify-between">
-          {/* Large PREV month button */}
-          <button
-            onClick={handlePrevMonth}
-            className="flex items-center gap-1.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold text-xs sm:text-sm border border-amber-300 shadow-sm transition transform active:scale-95"
-            aria-label="上個月"
-          >
-            <ChevronLeft className="w-5 h-5 text-amber-800" />
-            <span className="hidden sm:inline">上個月</span>
-          </button>
+        {/* Month Header with Year Adjustment Controls */}
+        <div className="px-3 sm:px-6 py-3.5 sm:py-4 bg-gradient-to-r from-[#fbf8f3] via-amber-50/50 to-[#fbf8f3] border-b border-amber-200 flex flex-wrap md:flex-nowrap items-center justify-between gap-2.5">
+          {/* Previous Controls (Year & Month) */}
+          <div className="flex items-center gap-1.5 order-2 md:order-1">
+            <button
+              onClick={handlePrevYear}
+              className="flex items-center gap-0.5 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-2xl bg-white hover:bg-amber-100 text-amber-900 font-bold text-xs border border-amber-300 shadow-2xs transition transform active:scale-95 whitespace-nowrap"
+              title="調整到上一年"
+            >
+              <span>« 上一年</span>
+            </button>
 
-          {/* Month & Year Title */}
-          <div className="text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-950 tracking-tight flex items-center justify-center gap-2">
-              <span>{currentYear} 年</span>
-              <span className="text-amber-800">{currentMonth} 月</span>
-            </h2>
-            <div className="flex items-center justify-center gap-2 mt-0.5">
-              <button
-                onClick={handleGoToday}
-                className="text-[11px] font-bold text-amber-700 hover:text-amber-900 underline"
-              >
-                回到今日（{today.getFullYear()}年{today.getMonth() + 1}月）
-              </button>
-            </div>
+            <button
+              onClick={handlePrevMonth}
+              className="flex items-center gap-1 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold text-xs sm:text-sm border border-amber-300 shadow-sm transition transform active:scale-95 whitespace-nowrap"
+              aria-label="上個月"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-amber-800" />
+              <span>上個月</span>
+            </button>
           </div>
 
-          {/* Large NEXT month button */}
-          <button
-            onClick={handleNextMonth}
-            className="flex items-center gap-1.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold text-xs sm:text-sm border border-amber-300 shadow-sm transition transform active:scale-95"
-            aria-label="下個月"
-          >
-            <span className="hidden sm:inline">下個月</span>
-            <ChevronRight className="w-5 h-5 text-amber-800" />
-          </button>
+          {/* Center: Year & Month Direct Selectors */}
+          <div className="text-center order-1 md:order-2 w-full md:w-auto flex flex-col items-center gap-1">
+            <div className="flex items-center justify-center gap-2">
+              {/* Year Selector with - / + buttons */}
+              <div className="flex items-center bg-white border-2 border-amber-300 rounded-2xl px-1.5 sm:px-2 py-0.5 shadow-2xs">
+                <button
+                  onClick={handlePrevYear}
+                  className="w-6 h-6 rounded-lg hover:bg-amber-100 text-amber-800 font-black text-sm flex items-center justify-center transition"
+                  title="減少一年"
+                >
+                  -
+                </button>
+                <select
+                  value={currentYear}
+                  onChange={(e) => setCurrentYear(Number(e.target.value))}
+                  className="bg-transparent font-black text-amber-950 text-base sm:text-xl md:text-2xl px-1 py-0.5 cursor-pointer focus:outline-none text-center"
+                >
+                  {Array.from({ length: 30 }, (_, i) => 2020 + i).map((yr) => (
+                    <option key={yr} value={yr}>
+                      {yr} 年
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handleNextYear}
+                  className="w-6 h-6 rounded-lg hover:bg-amber-100 text-amber-800 font-black text-sm flex items-center justify-center transition"
+                  title="增加一年"
+                >
+                  +
+                </button>
+              </div>
+
+              {/* Month Selector Dropdown */}
+              <div className="bg-white border-2 border-amber-300 rounded-2xl px-2 py-0.5 shadow-2xs">
+                <select
+                  value={currentMonth}
+                  onChange={(e) => setCurrentMonth(Number(e.target.value))}
+                  className="bg-transparent font-black text-amber-900 text-base sm:text-xl md:text-2xl px-1 py-0.5 cursor-pointer focus:outline-none text-center"
+                >
+                  {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                    <option key={m} value={m}>
+                      {m} 月
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <button
+              onClick={handleGoToday}
+              className="text-[11px] font-bold text-amber-800 hover:text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 px-2.5 py-0.5 rounded-full border border-amber-300 transition"
+            >
+              回到今日（{today.getFullYear()}年{today.getMonth() + 1}月）
+            </button>
+          </div>
+
+          {/* Next Controls (Month & Year) */}
+          <div className="flex items-center gap-1.5 order-3">
+            <button
+              onClick={handleNextMonth}
+              className="flex items-center gap-1 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold text-xs sm:text-sm border border-amber-300 shadow-sm transition transform active:scale-95 whitespace-nowrap"
+              aria-label="下個月"
+            >
+              <span>下個月</span>
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-amber-800" />
+            </button>
+
+            <button
+              onClick={handleNextYear}
+              className="flex items-center gap-0.5 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-2xl bg-white hover:bg-amber-100 text-amber-900 font-bold text-xs border border-amber-300 shadow-2xs transition transform active:scale-95 whitespace-nowrap"
+              title="調整到下一年"
+            >
+              <span>下一年 »</span>
+            </button>
+          </div>
         </div>
 
         {/* Weekday Labels */}
@@ -456,11 +524,14 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   )}
                 </div>
 
-                {/* Daily Weight (kg) Badge */}
+                {/* Daily Weight (kg) Badge: "體重數字不用標在日曆上，用💟標示" */}
                 {dayWeight !== undefined && (
-                  <div className="text-[9px] sm:text-[10px] font-bold text-teal-900 bg-teal-50 border border-teal-200 px-1 py-0.2 rounded-md shadow-2xs inline-flex items-center gap-0.5 w-fit">
-                    <span>⚖️</span>
-                    <span>{dayWeight}kg</span>
+                  <div 
+                    className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-pink-50 border border-pink-200/90 text-pink-700 shadow-2xs w-fit"
+                    title={`今日已記錄體重（數字保密不公開顯示）`}
+                  >
+                    <span className="text-xs sm:text-sm leading-none">💟</span>
+                    <span className="text-[9px] font-bold text-pink-700 hidden sm:inline">體重</span>
                   </div>
                 )}
 
@@ -564,14 +635,14 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
             </div>
 
             {/* 1. Daily Weight (kg) Feature */}
-            <div className="p-3.5 bg-white rounded-2xl border border-teal-200 shadow-2xs space-y-2">
+            <div className="p-3.5 bg-white rounded-2xl border border-pink-200 shadow-2xs space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-teal-950 flex items-center gap-1.5">
-                  <Scale className="w-4 h-4 text-teal-600" />
+                <label className="text-xs font-bold text-pink-950 flex items-center gap-1.5">
+                  <span className="text-base leading-none">💟</span>
                   <span>當日體重記錄（kg）：</span>
                 </label>
                 {weights[selectedDay.date] !== undefined && (
-                  <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
+                  <span className="text-xs font-bold text-pink-700 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">
                     目前：{weights[selectedDay.date]} kg
                   </span>
                 )}
@@ -586,13 +657,13 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   value={weightInput}
                   onChange={(e) => setWeightInput(e.target.value)}
                   placeholder="輸入體重（如 52.5）"
-                  className="flex-1 text-sm font-bold px-3 py-1.5 rounded-xl bg-teal-50/50 border border-teal-300 text-teal-950 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 text-sm font-bold px-3 py-1.5 rounded-xl bg-pink-50/40 border border-pink-300 text-pink-950 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
-                <span className="text-xs font-bold text-teal-900">kg</span>
+                <span className="text-xs font-bold text-pink-900">kg</span>
 
                 <button
                   onClick={() => handleSaveWeight(selectedDay.date)}
-                  className="px-3 py-1.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-xs transition"
+                  className="px-3 py-1.5 rounded-xl bg-pink-700 hover:bg-pink-800 text-white font-bold text-xs shadow-xs transition"
                 >
                   儲存
                 </button>
@@ -610,33 +681,38 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 )}
               </div>
 
-              {/* Quick Steppers */}
-              <div className="flex items-center gap-1.5 pt-0.5">
-                <span className="text-[11px] text-teal-800/70">微調：</span>
-                <button
-                  onClick={() => handleAdjustWeight(-0.5)}
-                  className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200"
-                >
-                  -0.5
-                </button>
-                <button
-                  onClick={() => handleAdjustWeight(-0.1)}
-                  className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200"
-                >
-                  -0.1
-                </button>
-                <button
-                  onClick={() => handleAdjustWeight(0.1)}
-                  className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200"
-                >
-                  +0.1
-                </button>
-                <button
-                  onClick={() => handleAdjustWeight(0.5)}
-                  className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200"
-                >
-                  +0.5
-                </button>
+              {/* Quick Steppers & Privacy Notice */}
+              <div className="flex flex-wrap items-center justify-between gap-1.5 pt-0.5">
+                <div className="flex items-center gap-1">
+                  <span className="text-[11px] text-pink-800/70 font-medium">微調：</span>
+                  <button
+                    onClick={() => handleAdjustWeight(-0.5)}
+                    className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200"
+                  >
+                    -0.5
+                  </button>
+                  <button
+                    onClick={() => handleAdjustWeight(-0.1)}
+                    className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200"
+                  >
+                    -0.1
+                  </button>
+                  <button
+                    onClick={() => handleAdjustWeight(0.1)}
+                    className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200"
+                  >
+                    +0.1
+                  </button>
+                  <button
+                    onClick={() => handleAdjustWeight(0.5)}
+                    className="px-2 py-0.5 text-[11px] font-bold rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200"
+                  >
+                    +0.5
+                  </button>
+                </div>
+                <span className="text-[10px] text-pink-700/75">
+                  月曆僅以 💟 標記，數字保密
+                </span>
               </div>
             </div>
 

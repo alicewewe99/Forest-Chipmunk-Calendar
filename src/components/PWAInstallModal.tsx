@@ -84,8 +84,13 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-amber-100/90 to-orange-100/90 border-b border-amber-200/60">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white shadow-sm flex items-center justify-center text-xl border border-amber-200">
-              🐿️
+            <div className="w-10 h-10 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-amber-200 overflow-hidden p-0.5">
+              <img 
+                src="/icon.png" 
+                alt="手繪花栗鼠" 
+                className="w-full h-full object-cover rounded-xl"
+                referrerPolicy="no-referrer" 
+              />
             </div>
             <div>
               <h3 className="text-lg font-bold text-amber-950 flex items-center gap-2">
@@ -120,8 +125,13 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
                 </div>
               )}
               {/* Cute chipmunk badge in center */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border-2 border-amber-400 flex items-center justify-center text-lg shadow">
-                🐿️
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-amber-400 flex items-center justify-center shadow overflow-hidden p-0.5">
+                <img 
+                  src="/icon.png" 
+                  alt="手繪花栗鼠" 
+                  className="w-full h-full object-cover rounded-full" 
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
 

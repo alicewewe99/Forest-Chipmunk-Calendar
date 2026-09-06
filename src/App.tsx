@@ -230,11 +230,11 @@ export default function App() {
             onClick={() => setActiveTab('calendar')}
             className="flex items-center gap-2.5 cursor-pointer group"
           >
-            <div className="relative w-11 h-11 rounded-2xl bg-amber-100 border border-amber-300 shadow-sm flex items-center justify-center p-1 group-hover:scale-105 transition transform">
+            <div className="relative w-11 h-11 rounded-2xl bg-amber-100 border border-amber-300 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition transform overflow-hidden">
               <img 
-                src="/icon.svg" 
+                src="/icon.png" 
                 alt="手繪花栗鼠拿著月曆" 
-                className="w-9 h-9 object-contain"
+                className="w-full h-full object-cover rounded-xl"
                 referrerPolicy="no-referrer"
               />
             </div>

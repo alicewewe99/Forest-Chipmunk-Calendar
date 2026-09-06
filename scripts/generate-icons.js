@@ -20,6 +20,13 @@ async function generateIcons() {
     .toFile('public/pwa-512x512.png');
   console.log('Created pwa-512x512.png');
 
+  // Also save public/icon.png for direct image usage
+  await sharp(svgBuffer)
+    .resize(512, 512)
+    .png()
+    .toFile('public/icon.png');
+  console.log('Created icon.png');
+
   // 180x180 Apple Touch Icon
   await sharp(svgBuffer)
     .resize(180, 180)
