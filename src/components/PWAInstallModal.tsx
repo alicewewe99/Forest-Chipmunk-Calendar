@@ -84,11 +84,11 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-amber-100/90 to-orange-100/90 border-b border-amber-200/60">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-amber-200 overflow-hidden p-0.5">
+            <div className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center border-2 border-amber-300 overflow-hidden p-0.5 transform hover:scale-105 transition">
               <img 
                 src="/icon.png" 
-                alt="手繪花栗鼠" 
-                className="w-full h-full object-cover rounded-xl"
+                alt="花栗鼠與熊貓月曆圖案" 
+                className="w-full h-full object-cover rounded-xl shadow-inner"
                 referrerPolicy="no-referrer" 
               />
             </div>
@@ -97,7 +97,7 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
                 安裝童話故事日曆 App
                 <span className="text-xs bg-amber-700 text-white px-2 py-0.5 rounded-full font-medium">PWA</span>
               </h3>
-              <p className="text-xs text-amber-800/80">掃描 QR Code 或一鍵安裝至手機桌面</p>
+              <p className="text-xs text-amber-800/80">花栗鼠與熊貓月曆圖案・加入桌面/手機主畫面</p>
             </div>
           </div>
           <button
@@ -213,6 +213,27 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
               </button>
             </div>
 
+            {/* Desktop / Mobile Icon Preview Card */}
+            <div className="flex items-center gap-3.5 p-3.5 bg-gradient-to-r from-amber-100/80 via-orange-50 to-amber-100/80 border border-amber-300/90 rounded-2xl shadow-2xs">
+              <div className="w-14 h-14 rounded-2xl bg-white shadow-md border-2 border-amber-300 p-0.5 overflow-hidden flex-shrink-0">
+                <img 
+                  src="/icon.png" 
+                  alt="桌面 App 圖案預覽" 
+                  className="w-full h-full object-cover rounded-xl"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="text-xs">
+                <p className="font-bold text-amber-950 flex items-center gap-1.5">
+                  <span>加入桌面之 App 圖示樣式：</span>
+                  <span className="text-[10px] bg-amber-700 text-white px-2 py-0.2 rounded-full">已更新為圖片圖案</span>
+                </p>
+                <p className="text-amber-800/85 text-[11px] mt-1 leading-relaxed">
+                  已套用「花栗鼠與熊貓手捧桌曆」插畫，加入 iPhone、Android 手機桌面或電腦桌面時即直接呈現此圖案。
+                </p>
+              </div>
+            </div>
+
             {/* Platform Guides */}
             {activePlatformTab === 'iphone' && (
               <div className="bg-white rounded-2xl p-4 border border-amber-200 text-xs text-amber-950 space-y-2">
@@ -224,7 +245,7 @@ export const PWAInstallModal: React.FC<PWAInstallModalProps> = ({
                   <li>使用 iPhone 相機掃描上方 QR Code，並在 <strong>Safari 瀏覽器</strong>中開啟。</li>
                   <li>點擊底部中央的 <strong>「分享」按鈕</strong>（帶有向上箭頭的正方形圖示）。</li>
                   <li>向下滾動，點選 <strong>「加入主畫面」</strong>（Add to Home Screen）。</li>
-                  <li>點擊右上角「新增」，桌面上即會出現抱著月曆的小花栗鼠 App 圖示！</li>
+                  <li>點擊右上角「新增」，手機桌面上即會出現花栗鼠與熊貓月曆的可愛 App 圖示！</li>
                 </ol>
               </div>
             )}

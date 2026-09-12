@@ -233,7 +233,7 @@ export default function App() {
             <div className="relative w-11 h-11 rounded-2xl bg-amber-100 border border-amber-300 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition transform overflow-hidden">
               <img 
                 src="/icon.png" 
-                alt="手繪花栗鼠拿著月曆" 
+                alt="花栗鼠與熊貓拿著月曆" 
                 className="w-full h-full object-cover rounded-xl"
                 referrerPolicy="no-referrer"
               />
